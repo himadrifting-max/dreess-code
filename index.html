@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreess Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.1.png"
 </head>
 <body>
     <header>
@@ -37,8 +41,12 @@
         <section id="about">
             <h2>About Us</h2>
             <p>I am a fashion designer from Kolkata, passionate about helping customers find their perfect look.
-             I have studied Fashion Designing from NIFT Kolkata, and today I work full-time while running my own boutique, Dreess Code on the side.</p>
+            <br> I have studied Fashion Designing from NIFT Kolkata, and today I work full-time while running my own boutique, Dreess Code on the side!!</br></p>
         </section>
+        <section id ="reviews" hidden"
+             <h2> What Our Customers Say</h2>
+             <div id="review-list"></div>
+    </section>
     </main>
 
     <footer id="contact">
@@ -53,7 +61,12 @@
     </a>
 </div>
     </footer>
-
+<div id="lightbox" class="lightbox">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous">&#10094;</button>
+    <img id="lb-image" src="" alt="">
+    <button class="lb-next" aria-label="Next Picture">&#10095;</button>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

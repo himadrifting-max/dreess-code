@@ -9,9 +9,14 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", Arial, sans-serif;
     color: #333;
     line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 700;
 }
 
 header {
@@ -47,8 +52,8 @@ nav a:hover {
 }
 
 #hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 16px;
+    font-size: 2.6rem;
+    font-style: italic;
 }
 
 #products {
@@ -63,6 +68,7 @@ nav a:hover {
 }
 
 .card {
+    position: relative;
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 12px;
@@ -149,7 +155,6 @@ footer {
 }
 .brand h1 {
     font-size: 1.8rem;
-    font-weight: italic;
 }
 
 .social-links {
@@ -173,3 +178,141 @@ footer {
 .social-links img:hover {
     transform: scale(1.15);
 }
+
+.card.sold .main-img {
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.sold-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    background: #b00020;
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+}
+
+.sold-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background: #ccc;
+    color: #666;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+.card .main-img {
+    cursor: zoom-in;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100; 
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.open {
+    display: flex;
+
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 6px;
+}
+
+.lightbox button {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.lb-close {
+    top: 20px;
+    right: 20px;
+}
+.lb-prev {
+    left: 8px;
+}
+.lb-next {
+    right: 8px;
+}
+
+.sizes{ 
+    font-size: 0.9rem;
+    color: #666;
+}
+/* Soft reveal as you scroll */
+.reveal { opacity: 0; }
+.reveal.visible {
+    opacity: 1;
+    animation: fadeUp 0.7s ease backwards;
+    animation-delay: var(--d, 0s);
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.card .main-img { transition: transform 0.4s ease; }
+.card:hover .main-img { transform: scale(1.03); }
+
+/* Order on WhatsApp button */
+.card a {
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card a:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+}
+.card a:active { transform: scale(0.97); }
+
+/* Thumbnails, menu, hero */
+.thumbs img { transition: transform 0.2s ease, border-color 0.2s ease; }
+.thumbs img:hover { transform: scale(1.1); border-color: #c9a24b; }
+
+nav a { transition: color 0.25s ease; }
+
+#hero h2, #hero p { animation: fadeUp 1s ease backwards; }
+#hero p { animation-delay: 0.25s; }
+
+/* Photo viewer fades in */
+.lightbox.open { animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Respect people who turn animations off on their device */
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; }
+}
+.desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 6px;
+}
+
+.lightbox.single .lb-prev,
+.lightbox.single .lb-next {display: none;}
